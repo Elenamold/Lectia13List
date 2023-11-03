@@ -37,12 +37,14 @@ public class ArrayListMethods {
    }
     public  static String traduceCuvant(Map<String,String> dictionar,String cuvant){
         String word = new String();
+        boolean found = false;
         for (Map.Entry<String,String> entry:dictionar.entrySet())
             if (entry.getKey().equals(cuvant))   {
+                found = true;
                 word=entry.getValue();
-                System.out.printf("cuvantul %s se traduce in engleza ca %s \n", cuvant, word);
-            }
-
+                System.out.printf("cuvântul %s se traduce în engleză ca %s \n", cuvant, word);
+        }
+        if (found == false)  System.out.printf("cuvântul %s nu se regâsește in dicționar \n", cuvant);
         return word;
     }
     public static void main(String[] args) {
@@ -55,6 +57,8 @@ public class ArrayListMethods {
         mapDictionary = createDictionary();
         System.out.println(mapDictionary);
         String str = traduceCuvant(mapDictionary,"masa");
+        System.out.println(str);
+        str = traduceCuvant(mapDictionary,"creon");
         System.out.println(str);
 
 //        ArrayList<String> ar1 = new ArrayList<String>();
